@@ -768,6 +768,7 @@ while True:
                 if chance > 0:
                     print("던전을 무사히 공략했다!")
                     print("던전 레벨이 올라갑니다!")
+                    dungeonlevel += 1
                     print(f"던전레벨:{dungeonlevel}")
                     dungeonprice += 30
             if go == 'n':
