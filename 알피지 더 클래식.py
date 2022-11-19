@@ -126,6 +126,7 @@ def update():
     maxmp = character_stat['지능'] * 10
     mana = maxmp
 def turnup():
+    global hp
     global turns
     turns += 1
     for i in range(len(s.skills)):
@@ -134,11 +135,21 @@ def turnup():
     if playerarmor['effect'] == '재생':
         hp += playerarmor['effectrank'] * 3
     if playeraccesory['effect'] == '재생':
+        print("이펙트:'재생'이 발동합니다.")
         hp += playeraccesory['effectrank'] * 3
     if playerweapon['effect'] == '재생':
+        print("이펙트:'재생'이 발동합니다.")
         hp += playerweapon['effectrank'] * 3
-    if playerweapon['effect'] == '출혈' or '화염' or '독':
+    if playerweapon['effect'] == '출혈':
+        print("이펙트:'출혈'이 발동합니다.")
         encountered['hp'] -= playerweapon['effectrank'] * 2
+    if playerweapon['effect'] == '독':
+        print("이펙트:'독'이 발동합니다.")
+        encountered['hp'] -= playerweapon['effectrank'] * 2
+    if playerweapon['effect'] == '화염':
+        print("이펙트:'화염'이 발동합니다.")
+        encountered['hp'] -= playerweapon['effectrank'] * 2
+
 def lvup():
     global level, point, goalexp, exp
     update()
@@ -771,5 +782,6 @@ while True:
                     dungeonlevel += 1
                     print(f"던전레벨:{dungeonlevel}")
                     dungeonprice += 30
+                    dungeonkey = False
             if go == 'n':
                 print(f"{character_nickname}은 열쇠를 집어넣었다.")
