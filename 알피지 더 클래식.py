@@ -775,7 +775,9 @@ while True:
                     if r.randint(1, 2) == 2:
                         print("!!!")
                         print("골드가 들어있는 상자를 발견했다!")
-                        print(f"{r.randint(dungeonlevel*10, dungeonlevel * 30) * dungeonlevel}골드를 얻었다!")
+                        get = r.randint(dungeonlevel*10, dungeonlevel * 30) * dungeonlevel
+                        print(f"{get}골드를 얻었다!")
+                        gold += get
                 if chance > 0:
                     print("던전을 무사히 공략했다!")
                     print("던전 레벨이 올라갑니다!")
